@@ -17,10 +17,10 @@ const Footer = () => {
           </div>
           
           <div className="flex items-center space-x-4">
-            <a href="#" className="text-gray-600 hover:text-primary-500 transition-colors">
+            <a href="https://github.com/Shivansh-Pseudoclan" className="text-gray-600 hover:text-primary-500 transition-colors">
               <Github className="h-5 w-5" />
             </a>
-            <a href="#" className="text-gray-600 hover:text-primary-500 transition-colors">
+            <a href="https://x.com/pseudo_clan" className="text-gray-600 hover:text-primary-500 transition-colors">
               <Twitter className="h-5 w-5" />
             </a>
           </div>

@@ -79,16 +79,23 @@ const Generator = () => {
             className="p-4 rounded-lg border border-gray-200 bg-white shadow-inner"
             style={{ backgroundColor: currentQR.bgColor }}
           >
-            <QRCode 
-              value={currentQR.value}
-              size={currentQR.size}
-              fgColor={currentQR.fgColor}
-              bgColor={currentQR.bgColor}
-              level={currentQR.level}
-              includeMargin={currentQR.includeMargin}
-              renderAs={currentQR.renderAs}
-              imageSettings={currentQR.imageSettings}
-            />
+          <QRCode
+          value={currentQR.value}
+          size={currentQR.size}
+          fgColor={currentQR.fgColor}
+          bgColor={currentQR.bgColor}
+          level={currentQR.level}
+          includeMargin={currentQR.includeMargin}
+          renderAs={currentQR.renderAs}
+          {...(
+            currentQR.renderAs === 'canvas' && currentQR.imageSettings && 
+            typeof currentQR.imageSettings.height === 'number' && 
+            typeof currentQR.imageSettings.width === 'number'
+              ? { imageSettings: currentQR.imageSettings }
+              : {}
+          )}
+          />
+
           </div>
           <div className="mt-6 w-full">
             <form onSubmit={handleURLSubmit} className="flex items-center mb-4">
