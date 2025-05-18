@@ -88,10 +88,18 @@ const Generator = () => {
           includeMargin={currentQR.includeMargin}
           renderAs={currentQR.renderAs}
           {...(
-            currentQR.renderAs === 'canvas' && currentQR.imageSettings && 
-            typeof currentQR.imageSettings.height === 'number' && 
+            currentQR.renderAs === 'canvas' &&
+            currentQR.imageSettings &&
+            typeof currentQR.imageSettings.height === 'number' &&
             typeof currentQR.imageSettings.width === 'number'
-              ? { imageSettings: currentQR.imageSettings }
+              ? {
+                  imageSettings: {
+                    ...currentQR.imageSettings,
+                    height: currentQR.imageSettings.height as number,
+                    width: currentQR.imageSettings.width as number,
+                    excavate: currentQR.imageSettings.excavate ?? false,
+                  }
+                }
               : {}
           )}
           />
