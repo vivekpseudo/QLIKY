@@ -27,7 +27,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
               <QrCode className="h-8 w-8 text-primary-500" />
-              <span className="text-xl font-bold text-gray-900">QR Craft</span>
+              <span className="text-xl font-bold text-gray-900">Qliky</span>
             </Link>
           </div>
 
