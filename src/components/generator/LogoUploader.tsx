@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Upload, X } from 'lucide-react';
 import { ImageSettings } from '../../types';
 
@@ -9,6 +9,11 @@ interface LogoUploaderProps {
 
 const LogoUploader = ({ imageSettings, onChange }: LogoUploaderProps) => {
   const [logoSize, setLogoSize] = useState<number>(imageSettings?.width || 50);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  const handleDivClick = () => {
+    fileInputRef.current?.click();
+  };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -91,15 +96,16 @@ const LogoUploader = ({ imageSettings, onChange }: LogoUploaderProps) => {
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Upload Logo (Optional)
           </label>
-          <div className="border-2 border-dashed border-gray-300 rounded-md p-6 flex flex-col items-center justify-center hover:border-primary-500 transition-colors duration-200">
+          <div onClick={handleDivClick} className="border-2 border-dashed border-gray-300 cursor-pointer rounded-md p-6 flex flex-col items-center justify-center hover:border-primary-500 transition-colors duration-200">
             <Upload className="h-8 w-8 text-gray-400 mb-2" />
             <p className="text-sm text-gray-500 mb-2">Click to upload or drag and drop</p>
             <p className="text-xs text-gray-400">PNG, JPG up to 1MB</p>
             <input
+              ref={fileInputRef}
               type="file"
               accept="image/png, image/jpeg"
               onChange={handleFileChange}
-              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+              className="inset-0 w-full h-full opacity-0 cursor-pointer"
             />
           </div>
         </div>
