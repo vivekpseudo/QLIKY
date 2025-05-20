@@ -7,15 +7,15 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="flex items-center space-x-2">
             <QrCode className="h-5 w-5 text-primary-500" />
-            <span className="text-lg font-semibold text-gray-900">Qliky</span>
+            <span className="text-lg font-semibold text-gray-900 dark:text-gray-300">Qliky</span>
           </div>
           
           <div className="flex items-center space-x-6 text-sm text-gray-600 dark:text-gray-400">
-            <a href="#" className="hover:text-primary-500 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-primary-500 transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-primary-500 transition-colors">Contact</a>
+            <a href="https://pseudoclan.com/" className="hover:text-primary-500 transition-colors">Privacy Policy</a>
+            <a href="https://pseudoclan.com/" className="hover:text-primary-500 transition-colors">Terms of Service</a>
+            <a href="https://x.com/pseudo_clan" className="hover:text-primary-500 transition-colors">Contact</a>
           </div>
-          
+      
           <div className="flex items-center space-x-4">
             <a href="https://github.com/Shivansh-Pseudoclan" className="text-gray-600 hover:text-primary-500 transition-colors">
               <Github className="h-5 w-5 dark:text-gray-300" />
