@@ -41,13 +41,13 @@ const Analytics = () => {
       <div className="flex flex-col lg:flex-row gap-6">
         {/* QR Code List */}
         <div className="w-full lg:w-1/4">
-          <div className="card mb-6">
+          <div className="card mb-6 dark:bg-gray-900 dark:border" >
             <h2 className="text-lg font-semibold mb-4">Your QR Codes</h2>
-            <div className="space-y-3 max-h-[600px] overflow-auto pr-2">
+            <div className="space-y-3 max-h-[600px] overflow-auto pr-2 dark:text-gray-200">
               {qrHistory.map((qrCode) => (
                 <button
                   key={qrCode.id}
-                  className={`w-full p-3 rounded-lg flex items-center border transition-colors duration-200 
+                  className={`w-full p-3 rounded-lg flex items-center border transition-colors duration-200 dark:bg-gray-900
                     ${
                       selectedQRCode?.id === qrCode.id
                         ? 'border-primary-500 bg-primary-50'
@@ -80,7 +80,7 @@ const Analytics = () => {
         </div>
 
         {/* Analytics Dashboard */}
-        <div className="w-full lg:w-3/4">
+        <div className="w-full lg:w-3/4 ">
           {selectedQRCode && analytics ? (
             <AnalyticsDashboard qrCode={selectedQRCode} analytics={analytics} />
           ) : (
