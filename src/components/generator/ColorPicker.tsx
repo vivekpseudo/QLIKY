@@ -40,7 +40,7 @@ const ColorPicker = ({ label, color, onChange }: ColorPickerProps) => {
 
   return (
     <div className="relative" ref={colorPickerRef}>
-      <label className="block text-sm font-medium text-gray-700 mb-1">{label}</label>
+      <label className="block text-sm font-medium text-gray-700 mb-1 dark:text-white">{label}</label>
       <div className="flex items-center">
         <div 
           className="w-10 h-10 rounded-md border border-gray-300 mr-3 cursor-pointer"

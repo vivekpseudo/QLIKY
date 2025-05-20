@@ -27,9 +27,9 @@ const SizeSlider = ({ size, onChange }: SizeSliderProps) => {
   };
 
   return (
-    <div>
+    <div >
       <div className="flex items-center justify-between mb-2">
-        <span className="text-sm font-medium text-gray-700">QR Code Size: {size}px</span>
+        <span className="text-sm font-medium text-gray-700 dark:text-gray-200">QR Code Size: {size}px</span>
       </div>
       <div className="flex items-center space-x-2">
         <button

@@ -93,12 +93,12 @@ const LogoUploader = ({ imageSettings, onChange }: LogoUploaderProps) => {
         </div>
       ) : (
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-200">
             Upload Logo (Optional)
           </label>
           <div onClick={handleDivClick} className="border-2 border-dashed border-gray-300 cursor-pointer rounded-md p-6 flex flex-col items-center justify-center hover:border-primary-500 transition-colors duration-200">
             <Upload className="h-8 w-8 text-gray-400 mb-2" />
-            <p className="text-sm text-gray-500 mb-2">Click to upload or drag and drop</p>
+            <p className="text-sm text-gray-500 mb-2 ">Click to upload or drag and drop</p>
             <p className="text-xs text-gray-400">PNG, JPG up to 1MB</p>
             <input
               ref={fileInputRef}

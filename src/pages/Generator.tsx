@@ -69,11 +69,11 @@ const Generator = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row gap-8 animate-fade-in">
+    <div className="flex flex-col lg:flex-row gap-8 animate-fade-in dark:bg-gray-900">
       {/* QR Code Preview */}
       <div className="w-full lg:w-1/2 flex flex-col items-center lg:sticky lg:top-24 self-start">
-        <div className="card w-full max-w-md flex flex-col items-center p-8">
-          <h2 className="text-2xl font-bold mb-6">QR Code Preview</h2>
+        <div className="card w-full max-w-md flex flex-col items-center p-8 dark:bg-gray-900 dark:border ">
+          <h2 className="text-black dark:text-white text-2xl font-bold mb-6">QR Code Preview</h2>
           <div 
             ref={qrRef} 
             className="p-4 rounded-lg border border-gray-200 bg-white shadow-inner"
@@ -112,7 +112,7 @@ const Generator = () => {
                 value={url}
                 onChange={handleURLChange}
                 placeholder="Enter URL to encode"
-                className="input-field flex-1"
+                className="input-field flex-1 dark:text-black" 
               />
               <button
                 type="submit"
@@ -156,8 +156,8 @@ const Generator = () => {
       </div>
 
       {/* Customization Options */}
-      <div className="w-full lg:w-1/2">
-        <div className="card w-full">
+      <div className="w-full lg:w-1/2 ">
+        <div className="card w-full dark:bg-gray-900">
           <h2 className="text-2xl font-bold mb-6">Customize Your QR Code</h2>
           <div className="space-y-8">
             <div>
@@ -165,6 +165,7 @@ const Generator = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <ColorPicker 
                   label="Foreground Color"
+              
                   color={currentQR.fgColor}
                   onChange={(color) => updateQRCode({ fgColor: color })}
                 />
@@ -177,7 +178,7 @@ const Generator = () => {
             </div>
 
             <div>
-              <h3 className="text-lg font-medium mb-3">Pattern & Style</h3>
+              <h3 className="text-lg font-medium mb-3 dark:text-white">Pattern & Style</h3>
               <PatternSelector 
                 selectedPattern={currentQR.pattern || 'squares'}
                 onChange={(pattern) => updateQRCode({ pattern })}

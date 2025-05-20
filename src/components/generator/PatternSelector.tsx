@@ -20,7 +20,7 @@ const PatternSelector = ({ selectedPattern, onChange }: PatternSelectorProps) =>
           <div
             key={pattern.id}
             className={`
-              flex flex-col items-center border rounded-lg p-3 cursor-pointer transition-all duration-200
+              flex flex-col items-center border rounded-lg p-3 cursor-pointer transition-all duration-200 dark:bg-gray-900
               ${
                 selectedPattern === pattern.id
                   ? 'border-primary-500 bg-primary-50'

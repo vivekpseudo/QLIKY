@@ -2,7 +2,7 @@ import { QrCode, Github, Twitter } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-gray-200 py-6 lg:py-8">
+    <footer className="bg-white border-t border-gray-200 py-6 lg:py-8 dark:bg-gray-900 dark:border-gray-600">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="flex items-center space-x-2">
@@ -10,7 +10,7 @@ const Footer = () => {
             <span className="text-lg font-semibold text-gray-900">Qliky</span>
           </div>
           
-          <div className="flex items-center space-x-6 text-sm text-gray-600">
+          <div className="flex items-center space-x-6 text-sm text-gray-600 dark:text-gray-400">
             <a href="#" className="hover:text-primary-500 transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-primary-500 transition-colors">Terms of Service</a>
             <a href="#" className="hover:text-primary-500 transition-colors">Contact</a>
@@ -18,10 +18,10 @@ const Footer = () => {
           
           <div className="flex items-center space-x-4">
             <a href="https://github.com/Shivansh-Pseudoclan" className="text-gray-600 hover:text-primary-500 transition-colors">
-              <Github className="h-5 w-5" />
+              <Github className="h-5 w-5 dark:text-gray-300" />
             </a>
             <a href="https://x.com/pseudo_clan" className="text-gray-600 hover:text-primary-500 transition-colors">
-              <Twitter className="h-5 w-5" />
+              <Twitter className="h-5 w-5 dark:text-gray-300" />
             </a>
           </div>
         </div>
