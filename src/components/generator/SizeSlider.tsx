@@ -7,7 +7,7 @@ interface SizeSliderProps {
 
 const SizeSlider = ({ size, onChange }: SizeSliderProps) => {
   const minSize = 100;
-  const maxSize = 400;
+  const maxSize = 300;
   const step = 10;
 
   const handleSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
