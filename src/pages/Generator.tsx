@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import QRCode  from 'qrcode.react';
+import QRCode from 'qrcode.react';
 import { Download, RefreshCcw, Save } from 'lucide-react';
 import { useQRCode } from '../contexts/QRCodeContext';
 import ColorPicker from '../components/generator/ColorPicker';
@@ -24,12 +24,11 @@ const Generator = () => {
 
   const downloadQRCode = (format: 'svg' | 'png') => {
     if (!qrRef.current) return;
-    
+
     const svg = qrRef.current.querySelector('svg');
     if (!svg) return;
-    
+
     if (format === 'svg') {
-      // Download as SVG
       const svgData = new XMLSerializer().serializeToString(svg);
       const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
       const svgUrl = URL.createObjectURL(svgBlob);
@@ -41,19 +40,18 @@ const Generator = () => {
       document.body.removeChild(downloadLink);
       URL.revokeObjectURL(svgUrl);
     } else if (format === 'png') {
-      // Convert SVG to Canvas and download as PNG
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
       const img = new Image();
       const svgData = new XMLSerializer().serializeToString(svg);
       const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
       const svgUrl = URL.createObjectURL(svgBlob);
-      
+
       img.onload = () => {
         canvas.width = currentQR.size;
         canvas.height = currentQR.size;
         ctx?.drawImage(img, 0, 0);
-        
+
         const pngUrl = canvas.toDataURL('image/png');
         const downloadLink = document.createElement('a');
         downloadLink.href = pngUrl;
@@ -63,7 +61,7 @@ const Generator = () => {
         document.body.removeChild(downloadLink);
         URL.revokeObjectURL(svgUrl);
       };
-      
+
       img.src = svgUrl;
     }
   };
@@ -72,38 +70,34 @@ const Generator = () => {
     <div className="flex flex-col lg:flex-row gap-8 animate-fade-in dark:bg-gray-900">
       {/* QR Code Preview */}
       <div className="w-full lg:w-1/2 flex flex-col items-center lg:sticky lg:top-24 self-start">
-        <div className="card w-full max-w-md flex flex-col items-center p-8 dark:bg-gray-900 dark:border ">
+        <div className="card w-full max-w-md flex flex-col items-center p-8 dark:bg-gray-900 dark:border">
           <h2 className="text-black dark:text-white text-2xl font-bold mb-6">QR Code Preview</h2>
-          <div 
-            ref={qrRef} 
+          <div
+            ref={qrRef}
             className="p-4 rounded-lg border border-gray-200 bg-white shadow-inner"
             style={{ backgroundColor: currentQR.bgColor }}
           >
-          <QRCode
-          value={currentQR.value}
-          size={currentQR.size}
-          fgColor={currentQR.fgColor}
-          bgColor={currentQR.bgColor}
-          level={currentQR.level}
-          includeMargin={currentQR.includeMargin}
-          renderAs={currentQR.renderAs}
-          {...(
-            currentQR.renderAs === 'canvas' &&
-            currentQR.imageSettings &&
-            typeof currentQR.imageSettings.height === 'number' &&
-            typeof currentQR.imageSettings.width === 'number'
-              ? {
-                  imageSettings: {
-                    ...currentQR.imageSettings,
-                    height: currentQR.imageSettings.height as number,
-                    width: currentQR.imageSettings.width as number,
-                    excavate: currentQR.imageSettings.excavate ?? false,
-                  }
-                }
-              : {}
-          )}
-          />
-
+            <QRCode
+              value={currentQR.value}
+              size={currentQR.size}
+              fgColor={currentQR.fgColor}
+              bgColor={currentQR.bgColor}
+              level={currentQR.level}
+              includeMargin={currentQR.includeMargin}
+              renderAs={currentQR.imageSettings?.src ? 'canvas' : currentQR.renderAs}
+              {...(
+                currentQR.imageSettings?.src
+                  ? {
+                      imageSettings: {
+                        src: currentQR.imageSettings.src,
+                        height: currentQR.imageSettings.height ?? 40,
+                        width: currentQR.imageSettings.width ?? 40,
+                        excavate: currentQR.imageSettings.excavate ?? true,
+                      }
+                    }
+                  : {}
+              )}
+            />
           </div>
           <div className="mt-6 w-full">
             <form onSubmit={handleURLSubmit} className="flex items-center mb-4">
@@ -112,7 +106,7 @@ const Generator = () => {
                 value={url}
                 onChange={handleURLChange}
                 placeholder="Enter URL to encode"
-                className="input-field flex-1 dark:text-black" 
+                className="input-field flex-1 dark:text-black"
               />
               <button
                 type="submit"
@@ -122,28 +116,28 @@ const Generator = () => {
               </button>
             </form>
             <div className="flex flex-wrap gap-3 justify-center mt-6">
-              <button 
+              <button
                 onClick={() => downloadQRCode('svg')}
                 className="btn btn-outline flex items-center gap-2"
               >
                 <Download className="h-4 w-4" />
                 Download SVG
               </button>
-              <button 
+              <button
                 onClick={() => downloadQRCode('png')}
                 className="btn btn-outline flex items-center gap-2"
               >
                 <Download className="h-4 w-4" />
                 Download PNG
               </button>
-              <button 
+              <button
                 onClick={saveQRCode}
                 className="btn btn-secondary flex items-center gap-2"
               >
                 <Save className="h-4 w-4" />
                 Save QR Code
               </button>
-              <button 
+              <button
                 onClick={resetQRCode}
                 className="btn btn-outline flex items-center gap-2 text-error-500 border-error-500 hover:bg-error-50"
               >
@@ -156,20 +150,19 @@ const Generator = () => {
       </div>
 
       {/* Customization Options */}
-      <div className="w-full lg:w-1/2 ">
+      <div className="w-full lg:w-1/2">
         <div className="card w-full dark:bg-gray-900">
           <h2 className="text-2xl font-bold mb-6">Customize Your QR Code</h2>
           <div className="space-y-8">
             <div>
               <h3 className="text-lg font-medium mb-3">Colors</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <ColorPicker 
+                <ColorPicker
                   label="Foreground Color"
-              
                   color={currentQR.fgColor}
                   onChange={(color) => updateQRCode({ fgColor: color })}
                 />
-                <ColorPicker 
+                <ColorPicker
                   label="Background Color"
                   color={currentQR.bgColor}
                   onChange={(color) => updateQRCode({ bgColor: color })}
@@ -179,7 +172,7 @@ const Generator = () => {
 
             <div>
               <h3 className="text-lg font-medium mb-3 dark:text-white">Pattern & Style</h3>
-              <PatternSelector 
+              <PatternSelector
                 selectedPattern={currentQR.pattern || 'squares'}
                 onChange={(pattern) => updateQRCode({ pattern })}
               />
@@ -187,7 +180,7 @@ const Generator = () => {
 
             <div>
               <h3 className="text-lg font-medium mb-3">Size</h3>
-              <SizeSlider 
+              <SizeSlider
                 size={currentQR.size}
                 onChange={(size) => updateQRCode({ size })}
               />
@@ -195,15 +188,18 @@ const Generator = () => {
 
             <div>
               <h3 className="text-lg font-medium mb-3">Logo</h3>
-              <LogoUploader 
+              <LogoUploader
                 imageSettings={currentQR.imageSettings}
-                onChange={(imageSettings) => updateQRCode({ imageSettings })}
+                onChange={(imageSettings) => updateQRCode({
+                  imageSettings,
+                  renderAs: 'canvas' // Force canvas when logo is added
+                })}
               />
             </div>
 
             <div>
               <h3 className="text-lg font-medium mb-3">Error Correction</h3>
-              <ErrorCorrectionSelector 
+              <ErrorCorrectionSelector
                 level={currentQR.level}
                 onChange={(level) => updateQRCode({ level })}
               />

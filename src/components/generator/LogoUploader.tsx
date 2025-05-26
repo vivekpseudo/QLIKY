@@ -79,7 +79,7 @@ const LogoUploader = ({ imageSettings, onChange }: LogoUploaderProps) => {
               <input
                 type="range"
                 min="20"
-                max="100"
+                max="60"
                 value={logoSize}
                 onChange={handleSizeChange}
                 className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary-500"
