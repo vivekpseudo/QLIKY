@@ -3,11 +3,20 @@ import { useQRCode } from '../contexts/QRCodeContext';
 import { QRCodeHistory } from '../types';
 import { QrCode } from 'lucide-react';
 import AnalyticsDashboard from '../components/analytics/AnalyticsDashboard';
+import { useNavigate } from 'react-router-dom';
+import { getToken } from '../libs/storageHelper';
 
 const Analytics = () => {
   const { qrHistory, getQRCodeAnalytics } = useQRCode();
   const [selectedQRCode, setSelectedQRCode] = useState<QRCodeHistory | null>(null);
+  const navigate = useNavigate();
   
+  useEffect(() => {
+    if (!getToken()) {
+      navigate('/login');
+    }
+  }, [navigate]);
+
   useEffect(() => {
     // Select the first QR code by default if available
     if (qrHistory.length > 0 && !selectedQRCode) {

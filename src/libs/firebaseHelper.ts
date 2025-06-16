@@ -122,7 +122,11 @@ export const signInWithGoogle = async (): Promise<any> => {
       await signInWithRedirect(auth, provider);
       return null;
     }
+    console.log("signInWithGoogle", "Using Popup");
+    
     const result = await signInWithPopup(auth, provider);
+    console.log("signInWithGoogle", result);
+    
     if (result) {
       // This gives you a Google Access Token. You can use it to access the Google API.
       //const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -130,6 +134,7 @@ export const signInWithGoogle = async (): Promise<any> => {
       // The signed-in user info.
       const user = result.user;
       console.log("signInWithGoogle", user.emailVerified);
+
       //await updateUserInfo(user);
       // await set(ref(database, `/userInfo/${user.uid}`), {
       //   imgUrl: user.photoURL,
@@ -146,7 +151,7 @@ export const signInWithGoogle = async (): Promise<any> => {
     //const email = error.email;
     // The AuthCredential type that was used.
     //const credential = GoogleAuthProvider.credentialFromError(error as any);
-    // alert(errorCode + ': ' + errorMessage);
+     alert(errorCode + ': ' + errorMessage);
   }
 };
 
