@@ -1,5 +1,7 @@
-import { useState, useRef } from 'react';
-import QRCode from 'qrcode.react';
+import { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { getToken } from '../libs/storageHelper';
+import QRCode  from 'qrcode.react';
 import { Download, RefreshCcw, Save } from 'lucide-react';
 import { useQRCode } from '../contexts/QRCodeContext';
 import ColorPicker from '../components/generator/ColorPicker';
@@ -9,6 +11,13 @@ import PatternSelector from '../components/generator/PatternSelector';
 import ErrorCorrectionSelector from '../components/generator/ErrorCorrectionSelector';
 
 const Generator = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!getToken()) {
+      navigate('/login');
+    }
+  }, [navigate]);
+
   const { currentQR, updateQRCode, resetQRCode, saveQRCode } = useQRCode();
   const [url, setUrl] = useState(currentQR.value);
   const qrRef = useRef<HTMLDivElement>(null);
