@@ -19,6 +19,7 @@ import MyQrcode from "./pages/MyQrcode";
 import Stats from "./pages/Stats";
 import PlanPayments from "./pages/PlanPayments";
 import Settings from "./pages/Settings";
+import ContactUs from "./pages/ContactUs";
 
 interface AuthComponentProps {
   allowedRoles: string[];
@@ -83,6 +84,7 @@ function App() {
                 <Route path="login" element={<Login />} />
                 <Route path="loginvialink" element={<LoginViaLink />} />
                 <Route path="signup" element={<Signup />} />
+                <Route path="contact" element={<ContactUs />} />
                 <Route element={<PrivateRoute allowedRoles={["user"]} />}>
                     <Route path="generator" element={<Generator />} />
                     <Route path="analytics" element={<Analytics />} />
