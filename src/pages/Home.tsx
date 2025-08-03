@@ -23,13 +23,6 @@ const Home = () => {
               <QrCode className="h-5 w-5" />
               Create QR Code
             </button>
-            <button 
-              onClick={() => navigate('/analytics')} 
-              className="btn btn-outline text-base flex items-center justify-center gap-2"
-            >
-              <BarChart3 className="h-5 w-5" />
-              View Analytics
-            </button>
           </div>
         </div>
       </section>
