@@ -90,6 +90,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="mt-12 text-center text-sm text-gray-500 dark:text-gray-400">
           © {new Date().getFullYear()} <span className="font-semibold text-primary-500">Qliky</span>. All rights reserved.
+
         </div>
       </div>
     </footer>
