@@ -1,5 +1,6 @@
 
-import { QrCode, Github, Twitter, Mail, User, MessageSquare } from 'lucide-react';
+import { QrCode, Github, Twitter, Mail, User, MessageSquare, Instagram } from 'lucide-react';
+
 
 const Footer = () => {
   return (
@@ -28,8 +29,8 @@ const Footer = () => {
                 <br>
                 </br>
                 <div className="flex items-center space-x-5 mb-6">
-                <a href="https://github.com/Shivansh-Pseudoclan" className="text-gray-500 hover:text-primary-500 transition-colors" aria-label="GitHub">
-                  <Github className="h-6 w-6" />
+                <a href="https://www.instagram.com/pseudoclan?igsh=MWo0dTl2bjV0d2R5OA==" className="text-gray-500 hover:text-primary-500 transition-colors" aria-label="GitHub">
+                  <Instagram className="h-6 w-6" />
                 </a>
                 <a href="https://x.com/pseudo_clan" className="text-gray-500 hover:text-primary-500 transition-colors" aria-label="Twitter">
                   <Twitter className="h-6 w-6" />
