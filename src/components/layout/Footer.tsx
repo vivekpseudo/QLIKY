@@ -51,7 +51,7 @@ const TermsOfServiceModal = ({ onClose }) => (
         </button>
       </div>
       <div className="p-6 md:p-8 overflow-y-auto max-h-[calc(90vh-80px)] prose dark:prose-invert text-gray-600 dark:text-gray-300">
-        <p>By using Qliky, you agree to our terms. Our service is provided "as is," and we're not liable for any issues that may arise from its use. All our content and software are our property. We may update these terms in the future, and your continued use means you accept the changes. In short, please use Qliky responsibly! 🤝</p>
+        <p>By using Qliky, you agree to our terms. Our service is provided "as is," and we're not liable for any issues that may arise from its use. All our content and software are our property. We may update these terms in the future, and your continued use means you accept the changes. In short, please use Qliky responsibly! </p>
       </div>
     </div>
   </div>
