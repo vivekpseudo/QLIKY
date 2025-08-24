@@ -15,23 +15,23 @@ const PatternSelector = ({ selectedPattern, onChange }: PatternSelectorProps) =>
 
   return (
     <div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
         {patterns.map((pattern) => (
           <div
             key={pattern.id}
             className={`
-              flex flex-col items-center border rounded-lg p-3 cursor-pointer transition-all duration-200 dark:bg-gray-900
+              flex flex-col items-center border rounded-lg p-2 sm:p-3 cursor-pointer transition-all duration-200 dark:bg-gray-900
               ${
                 selectedPattern === pattern.id
-                  ? 'border-primary-500 bg-primary-50'
-                  : 'border-gray-200 hover:border-gray-300'
+                  ? 'border-primary-500 bg-primary-50 dark:bg-primary-900'
+                  : 'border-gray-200 hover:border-gray-300 dark:border-gray-700 dark:hover:border-gray-600'
               }
             `}
             onClick={() => onChange(pattern.id)}
           >
-            <div className="w-12 h-12 mb-2 flex items-center justify-center">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 mb-1 sm:mb-2 flex items-center justify-center">
               {pattern.id === 'squares' && (
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <svg width="40" height="40" viewBox="0 0 48 48" fill="none" className="sm:w-12 sm:h-12">
                   <rect x="8" y="8" width="8" height="8" fill="currentColor" />
                   <rect x="8" y="20" width="8" height="8" fill="currentColor" />
                   <rect x="8" y="32" width="8" height="8" fill="currentColor" />
@@ -43,7 +43,7 @@ const PatternSelector = ({ selectedPattern, onChange }: PatternSelectorProps) =>
                 </svg>
               )}
               {pattern.id === 'dots' && (
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <svg width="40" height="40" viewBox="0 0 48 48" fill="none" className="sm:w-12 sm:h-12">
                   <circle cx="12" cy="12" r="4" fill="currentColor" />
                   <circle cx="12" cy="24" r="4" fill="currentColor" />
                   <circle cx="12" cy="36" r="4" fill="currentColor" />
@@ -55,7 +55,7 @@ const PatternSelector = ({ selectedPattern, onChange }: PatternSelectorProps) =>
                 </svg>
               )}
               {pattern.id === 'rounded' && (
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <svg width="40" height="40" viewBox="0 0 48 48" fill="none" className="sm:w-12 sm:h-12">
                   <rect x="8" y="8" width="8" height="8" rx="2" fill="currentColor" />
                   <rect x="8" y="20" width="8" height="8" rx="2" fill="currentColor" />
                   <rect x="8" y="32" width="8" height="8" rx="2" fill="currentColor" />
@@ -67,7 +67,7 @@ const PatternSelector = ({ selectedPattern, onChange }: PatternSelectorProps) =>
                 </svg>
               )}
               {pattern.id === 'classy' && (
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <svg width="40" height="40" viewBox="0 0 48 48" fill="none" className="sm:w-12 sm:h-12">
                   <path d="M12 8H16V12H12V8Z" fill="currentColor" />
                   <path d="M8 12H12V16H8V12Z" fill="currentColor" />
                   <path d="M8 8H12V12H8V8Z" fill="currentColor" />
@@ -84,7 +84,7 @@ const PatternSelector = ({ selectedPattern, onChange }: PatternSelectorProps) =>
                 </svg>
               )}
             </div>
-            <span className="text-xs font-medium text-center">
+            <span className="text-xs sm:text-sm font-medium text-center leading-tight">
               {pattern.name}
             </span>
           </div>

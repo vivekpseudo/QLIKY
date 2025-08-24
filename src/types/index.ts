@@ -4,11 +4,11 @@ export interface QRCodeProps {
   size: number;
   fgColor: string;
   bgColor: string;
-  level: 'L' | 'M' | 'Q' | 'H';
+  level: "L" | "M" | "Q" | "H";
   includeMargin: boolean;
-  renderAs: 'svg' | 'canvas';
+  renderAs: "svg" | "canvas";
   imageSettings: ImageSettings | null;
-  pattern?: 'squares' | 'dots' | 'rounded' | 'classy';
+  pattern?: "squares" | "dots" | "rounded" | "classy";
 }
 
 export interface ImageSettings {
@@ -51,4 +51,28 @@ export interface AnalyticsData {
 }
 
 // Custom pattern type
-export type PatternType = 'squares' | 'dots' | 'rounded' | 'classy';
+export type PatternType = "squares" | "dots" | "rounded" | "classy";
+
+export interface IQlikyRespone<T> {
+  data: T;
+  message: string;
+  status: number;
+  success: boolean;
+  error?: string;
+  errorCode?: string;
+  errorMessage?: string;
+}
+
+export interface IQlikyRequest<T> {
+  data: T;
+}
+
+export interface IQRInfo {
+  url: string;
+  name: string;
+  promocode: string;
+  isActive: boolean;
+  qrcode: string;
+  isStatic: boolean;
+  email: string;
+}
