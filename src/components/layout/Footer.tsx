@@ -76,14 +76,7 @@ const Footer = () => {
                 <p className="text-base text-gray-600 dark:text-gray-400 mb-6 max-w-md">
                   Qliky is a fast and secure QR Code Generator that helps you create and manage QR codes effortlessly. Trusted by hundreds of users.
                 </p>
-                {/* GIF -pseudoclan */}
-                <div className="mb-6 w-full flex justify-start">
-                  <img
-                    src="https://res.cloudinary.com/dq3rul8yt/image/upload/v1754234562/QLICKY_jdd5km.gif"
-                    alt="Animated Banner of Our brand"
-                    className="w-48 h-auto rounded-lg shadow-md"
-                  />
-                </div>
+               
                 <div className="flex items-center space-x-5 mb-6">
                   <a href="https://www.instagram.com/pseudoclan?igsh=MWo0dTl2bjV0d2R5OA==" className="text-gray-500 hover:text-primary-500 transition-colors" aria-label="Instagram">
                     <Instagram className="h-6 w-6" />
